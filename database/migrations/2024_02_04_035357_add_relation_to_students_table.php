@@ -11,13 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('students', function (Blueprint $table) {
-            $table->id();
-            $table->string('nim')->unique();
-            $table->string('name');
-            $table->unsignedBigInteger('study_program_id');
-            $table->integer('semester');
-            $table->timestamps();
+        Schema::table('students', function (Blueprint $table) {
+            $table->foreign('study_program_id')->references('id')->on('study_programs')->onDelete('cascade');
         });
     }
 
@@ -26,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('students');
+        Schema::table('students', function (Blueprint $table) {
+            //
+        });
     }
 };
