@@ -5,7 +5,7 @@
 <head>
 
     <meta charset="utf-8" />
-    <title>Sign In | Velzon - Admin & Dashboard Template</title>
+    <title>Login | Pasca Sarjana UNSIQ Wonosobo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Premium Multipurpose Admin & Dashboard Template" />
     <meta name="author" content="Themesbrand" />
@@ -37,7 +37,7 @@
                         <div class="card-body p-4">
                             <div class="text-center mt-2">
                                 <h5 class="text-primary">Login</h5>
-                                <p class="text-muted">Aplikasi Pasca Sarjana UNSIQ.</p>
+                                <p class="text-muted">Aplikasi Pasca Sarjana UNSIQ Wonosobo.</p>
                             </div>
                             <div class="p-2 mt-4">
                                 <form method="POST" action="{{ route('auth.login') }}">
@@ -45,20 +45,23 @@
                                     <div class="mb-3">
                                         <label class="form-label" for="username">Username</label>
                                         <input class="form-control" id="username" name="username" type="text"
-                                            placeholder="Enter username">
+                                            value="{{ old('username') }}" placeholder="Enter username" required>
+                                        @error('username')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
                                     </div>
 
                                     <div class="mb-3">
                                         <label class="form-label" for="password-input">Password</label>
                                         <div class="position-relative auth-pass-inputgroup mb-3">
-                                            <input class="form-control pe-5" id="password-input" type="password"
-                                                placeholder="Enter password">
+                                            <input class="form-control pe-5" id="password-input" name="password"
+                                                type="password" placeholder="Enter password" required>
                                         </div>
                                     </div>
 
                                     <div class="form-check">
-                                        <input class="form-check-input" id="auth-remember-check" type="checkbox"
-                                            value="">
+                                        <input class="form-check-input" id="auth-remember-check" name="remember"
+                                            type="checkbox" value="true">
                                         <label class="form-check-label" for="auth-remember-check">Remember
                                             me</label>
                                     </div>

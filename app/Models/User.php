@@ -37,7 +37,7 @@ class User extends Authenticatable
 
     public function student()
     {
-        return $this->belongsTo(Student::class, 'nim', 'username');
+        return $this->belongsTo(Student::class, 'username', 'nim');
     }
 
     public function role()
