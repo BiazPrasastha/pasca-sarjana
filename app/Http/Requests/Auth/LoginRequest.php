@@ -30,7 +30,6 @@ class LoginRequest extends FormRequest
 
     public function authenticate()
     {
-        dd($this->boolean('remember'));
         if (!auth()->attempt($this->only('username', 'password'), $this->boolean('remember'))) {
             throw ValidationException::withMessages([
                 'username' => 'Kombinasi username & password tidak sesuai.',
