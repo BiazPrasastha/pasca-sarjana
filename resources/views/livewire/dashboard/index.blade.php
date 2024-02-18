@@ -5,7 +5,9 @@
                 <div class="card-header">
                     Aktivitas Terkini
                 </div>
-                <div class="card-body"></div>
+                <div class="card-body">
+                    @livewire('Dashboard.Components.ActivityDiagram')
+                </div>
             </div>
         </div>
         <div class="col-lg-4">
