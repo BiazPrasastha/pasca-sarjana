@@ -9,4 +9,9 @@ class Student extends Model
 {
     use HasFactory;
     protected $guarded = [];
+
+    public function StudyProgram()
+    {
+        return $this->belongsTo(StudyProgram::class);
+    }
 }

@@ -9,4 +9,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class StudyProgram extends Model
 {
     use HasFactory, SoftDeletes;
+
+    public function Students()
+    {
+        return $this->hasMany(Student::class);
+    }
 }

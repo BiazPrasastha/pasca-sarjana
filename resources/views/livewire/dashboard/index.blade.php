@@ -15,7 +15,9 @@
                 <div class="card-header">
                     Data Program Studi Mahasiswa
                 </div>
-                <div class="card-body"></div>
+                <div class="card-body">
+                    @livewire('Dashboard.Components.StudyProgramDiagram')
+                </div>
             </div>
         </div>
     </div>
