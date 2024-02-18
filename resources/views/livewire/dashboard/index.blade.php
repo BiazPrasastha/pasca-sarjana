@@ -1,3 +1,28 @@
 <div>
-    Hello
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-header">
+                    Aktivitas Terkini
+                </div>
+                <div class="card-body"></div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card">
+                <div class="card-header">
+                    Data Program Studi Mahasiswa
+                </div>
+                <div class="card-body"></div>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            <h5>Notifikasi</h5>
+        </div>
+        <div class="card-body">
+            @livewire('Dashboard.Components.NotificationTable')
+        </div>
+    </div>
 </div>

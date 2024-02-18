@@ -19,6 +19,11 @@ class Document extends Model
         return $this->belongsTo(DocumentTest::class);
     }
 
+    public function User()
+    {
+        return $this->belongsTo(User::class);
+    }
+
     public function files()
     {
         return $this->hasMany(DocumentFile::class);
