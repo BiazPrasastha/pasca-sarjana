@@ -27,4 +27,5 @@ Route::middleware('auth')->group(function () {
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])->name('auth.logout');
     Route::get('dashboard', DashboardIndex::class)->name('dashboard.index');
     Route::get('proposal', ProposalIndex::class)->name('proposal.index');
+    Route::get('proposal/{document}/verification', ProposalVerification::class)->name('proposal.verification');
 });
