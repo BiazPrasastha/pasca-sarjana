@@ -39,6 +39,12 @@
                         <i class="ri-home-4-line"></i> <span data-key="t-dashboard">Dashboard</span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link {{ request()->is('proposal*') ? 'active' : '' }}"
+                        href="{{ route('proposal.index') }}">
+                        <i class="ri-file-list-2-line"></i> <span data-key="t-dashboard">Pengajuan Proposal</span>
+                    </a>
+                </li>
 
                 <li class="nav-item">
                     <a class="nav-link menu-link" data-bs-toggle="collapse" href="#sidebarMultilevel" role="button"
