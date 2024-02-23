@@ -10,4 +10,9 @@ class DocumentFile extends Model
 {
     use HasFactory, SoftDeletes;
     protected $guarded = [];
+
+    public function Document()
+    {
+        return $this->belongsTo(Document::class);
+    }
 }

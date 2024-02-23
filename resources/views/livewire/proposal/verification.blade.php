@@ -79,7 +79,7 @@
                                     <div class="row my-2">
                                         <div class="col-6">
                                             <a class="btn btn-primary w-100" type="button"
-                                                href="{{ route('proposal.schedule', ['file' => $file->id]) }}">
+                                                href="{{ route('proposal.schedule', ['document' => $file->id]) }}">
                                                 <i class="ri-check-line"></i>
                                             </a>
                                         </div>

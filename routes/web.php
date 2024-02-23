@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\DashboardController;
 use App\Livewire\Dashboard\Index as DashboardIndex;
 use App\Livewire\Proposal\Index as ProposalIndex;
+use App\Livewire\Proposal\Schedule as ProposalSchedule;
 use App\Livewire\Proposal\Verification as ProposalVerification;
 use Illuminate\Support\Facades\Route;
 
@@ -28,4 +29,5 @@ Route::middleware('auth')->group(function () {
     Route::get('dashboard', DashboardIndex::class)->name('dashboard.index');
     Route::get('proposal', ProposalIndex::class)->name('proposal.index');
     Route::get('proposal/{document}/verification', ProposalVerification::class)->name('proposal.verification');
+    Route::get('proposal/{document}/schedule', ProposalSchedule::class)->name('proposal.schedule');
 });
