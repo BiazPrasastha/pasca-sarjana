@@ -3,6 +3,9 @@
 namespace App\Livewire\Proposal;
 
 use App\Models\Document;
+use App\Models\DocumentFile;
+use Illuminate\Support\Facades\Validator;
+use Livewire\Attributes\On;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
@@ -10,6 +13,7 @@ use Livewire\Component;
 class Verification extends Component
 {
     public Document $document;
+    public $file;
 
     public function mount()
     {
@@ -23,8 +27,24 @@ class Verification extends Component
         return view('livewire.proposal.verification');
     }
 
-    public function verification()
+    #[On('decline')]
+    public function delete(DocumentFile $file)
     {
-        $this->form->approve();
+        $this->file = $file;
+    }
+
+    public function destroy()
+    {
+        $this->file->load('Document');
+
+        $this->file->update([
+            'status' => 'decline'
+        ]);
+
+        $this->file->Document->update([
+            'status' => 'decline'
+        ]);
+
+        $this->dispatch('hide-confirmation');
     }
 }
