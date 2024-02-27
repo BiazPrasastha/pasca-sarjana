@@ -29,5 +29,5 @@ Route::middleware('auth')->group(function () {
     Route::get('dashboard', DashboardIndex::class)->name('dashboard.index');
     Route::get('proposal', ProposalIndex::class)->name('proposal.index');
     Route::get('proposal/{document}/verification', ProposalVerification::class)->name('proposal.verification')->middleware('can:user-admin');
-    Route::get('proposal/{document}/schedule', ProposalSchedule::class)->name('proposal.schedule')->middleware('can:user-admin');
+    Route::get('proposal/{document}/schedule', ProposalSchedule::class)->name('proposal.schedule')->middleware(['can:user-admin', 'can:file-pending,document']);
 });

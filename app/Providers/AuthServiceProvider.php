@@ -4,6 +4,7 @@ namespace App\Providers;
 
 // use Illuminate\Support\Facades\Gate;
 
+use App\Policies\FilePolicy;
 use App\Policies\UserPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
@@ -28,5 +29,8 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('user-admin', [UserPolicy::class, 'admin']);
         Gate::define('user-lecturer', [UserPolicy::class, 'lecturer']);
         Gate::define('user-student', [UserPolicy::class, 'student']);
+
+        // file
+        Gate::define('file-pending', [FilePolicy::class, 'pending']);
     }
 }
