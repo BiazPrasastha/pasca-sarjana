@@ -42,7 +42,13 @@
                 <li class="nav-item">
                     <a class="nav-link menu-link {{ request()->is('proposal*') ? 'active' : '' }}"
                         href="{{ route('proposal.index') }}">
-                        <i class="ri-file-list-2-line"></i> <span data-key="t-dashboard">Pengajuan Proposal</span>
+                        <i class="ri-file-list-2-line"></i> <span data-key="t-proposal">Pengajuan Proposal</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link {{ request()->is('plagiarism*') ? 'active' : '' }}"
+                        href="{{ route('plagiarism.index') }}">
+                        <i class="ri-clipboard-line"></i> <span data-key="t-plagiarism">Plagiasi</span>
                     </a>
                 </li>
 
