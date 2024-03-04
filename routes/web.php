@@ -32,10 +32,10 @@ Route::middleware('auth')->group(function () {
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])->name('auth.logout');
     Route::get('dashboard', DashboardIndex::class)->name('dashboard.index');
     Route::get('proposal', ProposalIndex::class)->name('proposal.index');
-    Route::get('proposal/{document}/verification', ProposalVerification::class)->name('proposal.verification')->middleware('can:user-admin'); //middleware file type proposal
-    Route::get('proposal/{document}/schedule', ProposalSchedule::class)->name('proposal.schedule')->middleware(['can:user-admin', 'can:file-pending,document']);
+    Route::get('proposal/{document}/verification', ProposalVerification::class)->name('proposal.verification')->middleware(['can:user-admin', "can:file-type,document,'proposal'"]);
+    Route::get('proposal/{document}/schedule', ProposalSchedule::class)->name('proposal.schedule')->middleware(['can:user-admin', "can:file-type,document,'proposal'", "can:file-status,document,'pending'"]);
     Route::get('plagiarism', PlagiarismIndex::class)->name('plagiarism.index');
-    Route::get('plagiarism/{document}/verification', PlagiarismVerification::class)->name('plagiarism.verification');
-    Route::get('plagiarism/{document}/accept', PlagiarismAccept::class)->name('plagiarism.accept')->middleware(['can:user-admin', 'can:file-pending,document']);
-    Route::get('plagiarism/{document}/decline', PlagiarismDecline::class)->name('plagiarism.decline')->middleware(['can:user-admin', 'can:file-pending,document']);
+    Route::get('plagiarism/{document}/verification', PlagiarismVerification::class)->name('plagiarism.verification')->middleware(['can:user-admin', "can:file-type,document,'plagiarism'"]);
+    Route::get('plagiarism/{document}/accept', PlagiarismAccept::class)->name('plagiarism.accept')->middleware(['can:user-admin', "can:file-status,document,'pending|accept'", "can:file-type,document,'plagiarism'"]);
+    Route::get('plagiarism/{document}/decline', PlagiarismDecline::class)->name('plagiarism.decline')->middleware(['can:user-admin', "can:file-status,document,'pending|decline'", "can:file-type,document,'plagiarism'"]);
 });

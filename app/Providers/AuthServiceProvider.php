@@ -31,6 +31,7 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('user-student', [UserPolicy::class, 'student']);
 
         // file
-        Gate::define('file-pending', [FilePolicy::class, 'pending']);
+        Gate::define('file-status', [FilePolicy::class, 'status']);
+        Gate::define('file-type', [FilePolicy::class, 'type']);
     }
 }
