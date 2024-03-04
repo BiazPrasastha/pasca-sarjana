@@ -11,6 +11,18 @@ class Accept extends Component
 {
     public DocumentFile $document;
 
+    public function mount()
+    {
+        $this->document->load('Document');
+        $this->document->update([
+            'status' => 'accept'
+        ]);
+
+        $this->document->Document->update([
+            'status' => 'accept'
+        ]);
+    }
+
     public function render()
     {
         return view('livewire.plagiarism.accept');

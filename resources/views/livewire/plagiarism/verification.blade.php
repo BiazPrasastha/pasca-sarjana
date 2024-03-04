@@ -37,11 +37,15 @@
                                         @break
 
                                         @case('accept')
-                                            <button class="btn btn-success w-100"> Diterima </button>
+                                            <a class="btn btn-success w-100"
+                                                href="{{ route('plagiarism.accept', ['document' => $file->id]) }}"> Diterima
+                                            </a>
                                         @break
 
                                         @case('decline')
-                                            <button class="btn btn-danger w-100"> Ditolak </button>
+                                            <a class="btn btn-danger w-100"
+                                                href="{{ route('plagiarism.decline', ['document' => $file->id]) }}"> Ditolak
+                                            </a>
                                         @break
 
                                         @default
