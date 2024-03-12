@@ -13,7 +13,7 @@ class Decline extends Component
 
     public function mount()
     {
-        $this->document->load('Document');
+        $this->document->load(['Document', 'Document.User', 'Document.User.Student']);
         $this->document->update([
             'status' => 'decline'
         ]);
@@ -25,6 +25,16 @@ class Decline extends Component
 
     public function render()
     {
-        return view('livewire.plagiarism.decline');
+        $decline_count = DocumentFile::where('document_id', $this->document->document_id)
+            ->where('type', $this->document->type)
+            ->where('status', 'decline')
+            ->count();
+
+        return view('livewire.plagiarism.decline', compact('decline_count'));
+    }
+
+    public function sendEmail()
+    {
+        dd('email sent');
     }
 }

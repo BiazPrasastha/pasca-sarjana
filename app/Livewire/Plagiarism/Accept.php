@@ -13,7 +13,7 @@ class Accept extends Component
 
     public function mount()
     {
-        $this->document->load('Document');
+        $this->document->load(['Document', 'Document.User', 'Document.User.Student']);
         $this->document->update([
             'status' => 'accept'
         ]);
@@ -26,5 +26,10 @@ class Accept extends Component
     public function render()
     {
         return view('livewire.plagiarism.accept');
+    }
+
+    public function sendEmail()
+    {
+        dd('email sent');
     }
 }
