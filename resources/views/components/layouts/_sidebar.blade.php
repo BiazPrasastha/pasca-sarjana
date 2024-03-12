@@ -51,6 +51,12 @@
                         <i class="ri-clipboard-line"></i> <span data-key="t-plagiarism">Plagiasi</span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link {{ request()->is('theses*') ? 'active' : '' }}"
+                        href="{{ route('theses.index') }}">
+                        <i class="ri-profile-line"></i> <span data-key="t-theses">Tesis</span>
+                    </a>
+                </li>
 
                 <li class="nav-item">
                     <a class="nav-link menu-link" data-bs-toggle="collapse" href="#sidebarMultilevel" role="button"
@@ -85,7 +91,8 @@
                                                             3.1 </a>
                                                     </li>
                                                     <li class="nav-item">
-                                                        <a class="nav-link" data-key="t-level-3.2" href="#"> Level
+                                                        <a class="nav-link" data-key="t-level-3.2" href="#">
+                                                            Level
                                                             3.2 </a>
                                                     </li>
                                                 </ul>
