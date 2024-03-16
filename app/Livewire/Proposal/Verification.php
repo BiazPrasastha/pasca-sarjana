@@ -47,4 +47,25 @@ class Verification extends Component
 
         $this->dispatch('hide-confirmation');
     }
+
+    #[On('accept')]
+    public function create(DocumentFile $file)
+    {
+        $this->file = $file;
+    }
+
+    public function store()
+    {
+        $this->file->load('Document');
+
+        $this->file->update([
+            'status' => 'accept'
+        ]);
+
+        $this->file->Document->update([
+            'status' => 'accept'
+        ]);
+
+        return redirect(route('proposal.schedule', ['document' => $this->file->Document->id]));
+    }
 }

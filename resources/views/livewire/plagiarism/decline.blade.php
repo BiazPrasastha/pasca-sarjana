@@ -2,7 +2,7 @@
     <div class="mb-4">
         <!-- Buttons with Label -->
         <a class="btn btn-secondary btn-label waves-effect waves-light"
-            href="{{ route('plagiarism.verification', ['document' => $document->Document->id]) }}">
+            href="{{ route('plagiarism.verification', ['document' => $file->Document->id]) }}">
             <i class="ri-arrow-left-line label-icon align-middle fs-16 me-2"></i> Kembali
         </a>
     </div>
@@ -10,7 +10,7 @@
     <div class="card">
         <div class="card-header">
             <h5>
-                Kirim ke : {{ $document->Document->User->email }}
+                Kirim ke : {{ $file->Document->User->email }}
             </h5>
         </div>
         <div class="card-body">
@@ -18,7 +18,7 @@
             <div class="container mt-5">
                 <p>
                     Assalamualaikum Warahmatullahi Wabarakatuh. Saudara
-                    {{ $document->Document->User->Student->name }}.
+                    {{ $file->Document->User->Student->name }}.
                 </p>
                 <p>
                     Hasil dari cek plagiasi tesis milik anda sudah kami periksa dan hasilnya <b>TIDAK LULUS</b>.
@@ -58,7 +58,7 @@
     <div class="d-flex justify-content-end gap-2">
         <a
             class="btn btn-outline-dark btn-lg"
-            href="{{ route('plagiarism.verification', ['document' => $document->Document->id]) }}">
+            href="{{ route('plagiarism.verification', ['document' => $file->Document->id]) }}">
             Batal
         </a>
         <form wire:submit='sendEmail'>

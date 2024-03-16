@@ -38,13 +38,13 @@
 
                                         @case('accept')
                                             <a class="btn btn-success w-100"
-                                                href="{{ route('plagiarism.accept', ['document' => $file->id]) }}"> Diterima
+                                                href="{{ route('plagiarism.accept', ['file' => $file->id]) }}"> Diterima
                                             </a>
                                         @break
 
                                         @case('decline')
                                             <a class="btn btn-danger w-100"
-                                                href="{{ route('plagiarism.decline', ['document' => $file->id]) }}"> Ditolak
+                                                href="{{ route('plagiarism.decline', ['file' => $file->id]) }}"> Ditolak
                                             </a>
                                         @break
 
@@ -57,13 +57,13 @@
                                         <div class="row my-2">
                                             <div class="col-6">
                                                 <a class="btn btn-primary w-100" type="button"
-                                                    href="{{ route('plagiarism.accept', ['document' => $file->id]) }}">
+                                                    href="{{ route('plagiarism.accept', ['file' => $file->id]) }}">
                                                     <i class="ri-check-line"></i>
                                                 </a>
                                             </div>
                                             <div class="col-6">
                                                 <a class="btn btn-danger w-100" type="button"
-                                                    href="{{ route('plagiarism.decline', ['document' => $file->id]) }}">
+                                                    href="{{ route('plagiarism.decline', ['file' => $file->id]) }}">
                                                     <i class="ri-close-line"></i>
                                                 </a>
                                             </div>

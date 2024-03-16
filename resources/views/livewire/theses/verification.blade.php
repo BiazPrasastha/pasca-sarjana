@@ -63,7 +63,10 @@
                                         @break
 
                                         @case('accept')
-                                            <button class="btn btn-success w-100"> Diterima </button>
+                                            <a class="btn btn-success w-100"
+                                                href="{{ route('theses.schedule', ['document' => $file->Document->id]) }}">
+                                                Diterima
+                                            </a>
                                         @break
 
                                         @case('decline')

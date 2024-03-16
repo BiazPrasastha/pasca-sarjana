@@ -9,24 +9,24 @@ use Livewire\Component;
 #[Title('Cek Plagiasi')]
 class Decline extends Component
 {
-    public DocumentFile $document;
+    public DocumentFile $file;
 
     public function mount()
     {
-        $this->document->load(['Document', 'Document.User', 'Document.User.Student']);
-        $this->document->update([
+        $this->file->load('Document.User.Student');
+        $this->file->update([
             'status' => 'decline'
         ]);
 
-        $this->document->Document->update([
+        $this->file->Document->update([
             'status' => 'decline'
         ]);
     }
 
     public function render()
     {
-        $decline_count = DocumentFile::where('document_id', $this->document->document_id)
-            ->where('type', $this->document->type)
+        $decline_count = DocumentFile::where('document_id', $this->file->document_id)
+            ->where('type', $this->file->type)
             ->where('status', 'decline')
             ->count();
 

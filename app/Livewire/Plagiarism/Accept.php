@@ -9,16 +9,16 @@ use Livewire\Component;
 #[Title('Cek Plagiasi')]
 class Accept extends Component
 {
-    public DocumentFile $document;
+    public DocumentFile $file;
 
     public function mount()
     {
-        $this->document->load(['Document', 'Document.User', 'Document.User.Student']);
-        $this->document->update([
+        $this->file->load('Document.User.Student');
+        $this->file->update([
             'status' => 'accept'
         ]);
 
-        $this->document->Document->update([
+        $this->file->Document->update([
             'status' => 'accept'
         ]);
     }

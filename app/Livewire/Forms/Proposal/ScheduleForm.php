@@ -30,12 +30,12 @@ class ScheduleForm extends Form
             'status' => 'accept'
         ]);
 
-        $file->Document->update([
+        $file->update([
             'status' => 'accept'
         ]);
 
         $test = DocumentTest::create([
-            'document_id' => $file->Document->id,
+            'document_id' => $file->id,
             'timestamp' => $this->datetime,
             'location' => $this->location,
             'status' => 'pending',

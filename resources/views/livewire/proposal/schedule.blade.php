@@ -2,18 +2,19 @@
     <div class="mb-4">
         <!-- Buttons with Label -->
         <a class="btn btn-secondary btn-label waves-effect waves-light"
-            href="{{ route('proposal.verification', ['document' => $document->Document->id]) }}">
+            href="{{ route('proposal.verification', ['document' => $document->id]) }}">
             <i class="ri-arrow-left-line label-icon align-middle fs-16 me-2"></i> Kembali
         </a>
     </div>
     <div class="card">
-        <form wire:submit='submit'>
+        <form wire:submit='validation'>
             <div class="card-body">
                 <div class="row gy-2">
                     <div class="col-12">
                         <div wire:ignore>
                             <label class="form-label" for="datetime">Hari/Tanggal & Waktu</label>
-                            <input class="form-control" id="datetime" type="text">
+                            <input class="form-control" id="datetime" type="text" value="{{ $form->datetime }}"
+                                {{ $already_exists ? 'readonly' : '' }}>
                         </div>
                         @error('form.datetime')
                             <div class="invalid-feedback" style="display: block">
@@ -24,7 +25,8 @@
                     <div class="col-12">
                         <div>
                             <label class="form-label" for="location">Tempat</label>
-                            <input class="form-control" id="location" type="text" wire:model='form.location'>
+                            <input class="form-control" id="location" type="text" wire:model='form.location'
+                                {{ $already_exists ? 'readonly' : '' }}>
                         </div>
                         @error('form.location')
                             <div class="invalid-feedback" style="display: block">
@@ -37,9 +39,13 @@
                             <label class="form-label" for="examiner">
                                 Dosen Penguji
                             </label>
-                            <select class="js-example-basic-multiple" id="examiner" multiple="multiple">
+                            <select class="js-example-basic-multiple" id="examiner" multiple="multiple"
+                                {{ $already_exists ? 'readonly' : '' }}>
                                 @foreach ($examiners as $examiner)
-                                    <option value="{{ $examiner->id }}">{{ $examiner->username }}</option>
+                                    <option value="{{ $examiner->id }}"
+                                        {{ in_array($examiner->id, $form->examiners) ? 'selected' : '' }}>
+                                        {{ $examiner->username }}
+                                    </option>
                                 @endforeach
                             </select>
                         </div>
@@ -56,10 +62,38 @@
                     </div>
                 </div>
             </div>
-            <div class="card-footer">
-                <button class="btn btn-primary " type="submit">Save Changes</button>
-            </div>
+            @if (!$already_exists)
+                <div class="card-footer">
+                    <button class="btn btn-primary" type="submit">Save Changes</button>
+                </div>
+            @endif
         </form>
+    </div>
+
+    <div class="modal fade" id="acceptConfirmationModal" aria-labelledby="confirmationLabel" aria-hidden="true"
+        tabindex="-1" style="display: none;" wire:ignore.self>
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmationLabel"> Konfirmasi Jadwal Ujian Proposal</h5>
+                    <button class="btn-close" data-bs-dismiss="modal" type="button" aria-label="Close">
+                    </button>
+                </div>
+                <form wire:submit='submit'>
+                    <div class="modal-body">
+                        <div class="text-center my-3">
+                            <h4 class="fw-bold">{{ $document->title }}</h4>
+                            <p class="text-muted mb-4"> Apakah anda mengatur jadwal ujian proposal diajukan?
+                            </p>
+                            <div class="hstack gap-2 justify-content-center">
+                                <button class="btn btn-light" data-bs-dismiss="modal" type="button">Close</button>
+                                <button class="btn btn-primary" type="submit">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
 @push('scripts')
@@ -88,6 +122,17 @@
                 let date = moment(selectedDates[0]).format('YYYY-MM-DD HH:mm:ss');
                 @this.set('form.datetime', date, false)
             }
+        });
+    </script>
+    <script>
+        let acceptConfirmationModal = new bootstrap.Modal(document.getElementById('acceptConfirmationModal'));
+        document.addEventListener('livewire:init', () => {
+            Livewire.on('show-confirmation', (event) => {
+                acceptConfirmationModal.show()
+            });
+            Livewire.on('hide-confirmation', (event) => {
+                acceptConfirmationModal.hide()
+            });
         });
     </script>
 @endpush

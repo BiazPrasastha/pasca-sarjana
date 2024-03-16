@@ -34,14 +34,23 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])->name('auth.logout');
     Route::get('dashboard', DashboardIndex::class)->name('dashboard.index');
-    Route::get('proposal', ProposalIndex::class)->name('proposal.index');
-    Route::get('proposal/{document}/verification', ProposalVerification::class)->name('proposal.verification')->middleware(['can:user-admin', "can:file-type,document,'proposal'"]);
-    Route::get('proposal/{document}/schedule', ProposalSchedule::class)->name('proposal.schedule')->middleware(['can:user-admin', "can:file-type,document,'proposal'", "can:file-status,document,'pending'"]);
-    Route::get('plagiarism', PlagiarismIndex::class)->name('plagiarism.index');
-    Route::get('plagiarism/{document}/verification', PlagiarismVerification::class)->name('plagiarism.verification')->middleware(['can:user-admin', "can:file-type,document,'plagiarism'"]);
-    Route::get('plagiarism/{document}/accept', PlagiarismAccept::class)->name('plagiarism.accept')->middleware(['can:user-admin', "can:file-status,document,'pending|accept'", "can:file-type,document,'plagiarism'"]);
-    Route::get('plagiarism/{document}/decline', PlagiarismDecline::class)->name('plagiarism.decline')->middleware(['can:user-admin', "can:file-status,document,'pending|decline'", "can:file-type,document,'plagiarism'"]);
-    Route::get('theses', ThesesIndex::class)->name('theses.index');
-    Route::get('theses/{document}/verification', ThesesVerification::class)->name('theses.verification')->middleware(['can:user-admin', "can:file-type,document,'theses'"]);
-    Route::get('theses/{document}/schedule', ThesesSchedule::class)->name('theses.schedule')->middleware(['can:user-admin', "can:file-status,document,'pending|accept'", "can:file-type,document,'theses'"]);
+
+    Route::group(['prefix' => 'proposal', 'as' => 'proposal.'], function () {
+        Route::get('/', ProposalIndex::class)->name('index');
+        Route::get('/{document}/verification', ProposalVerification::class)->name('verification')->middleware(['can:user-admin', "can:file-type,document,'proposal'"]);
+        Route::get('/{document}/schedule', ProposalSchedule::class)->name('schedule')->middleware(['can:user-admin', "can:document-status,document,'accept'", "can:file-type,document,'proposal'"]);
+    });
+
+    Route::group(['prefix' => 'plagiarism', 'as' => 'plagiarism.'], function () {
+        Route::get('/', PlagiarismIndex::class)->name('index');
+        Route::get('/{document}/verification', PlagiarismVerification::class)->name('verification')->middleware(['can:user-admin', "can:file-type,document,'plagiarism'"]);
+        Route::get('/{file}/accept', PlagiarismAccept::class)->name('accept')->middleware(['can:user-admin', "can:file-status,file,'pending|accept'", "can:file-type,file,'plagiarism'"]);
+        Route::get('/{file}/decline', PlagiarismDecline::class)->name('decline')->middleware(['can:user-admin', "can:file-status,file,'pending|decline'", "can:file-type,file,'plagiarism'"]);
+    });
+
+    Route::group(['prefix' => 'theses', 'as' => 'theses.'], function () {
+        Route::get('/', ThesesIndex::class)->name('index');
+        Route::get('/{document}/verification', ThesesVerification::class)->name('verification')->middleware(['can:user-admin', "can:file-type,document,'theses'"]);
+        Route::get('/{document}/schedule', ThesesSchedule::class)->name('schedule')->middleware(['can:user-admin', "can:document-status,document,'accept'", "can:file-type,document,'theses'"]);
+    });
 });

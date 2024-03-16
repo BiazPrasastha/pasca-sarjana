@@ -16,7 +16,7 @@ class Document extends Model
 
     public function test()
     {
-        return $this->belongsTo(DocumentTest::class);
+        return $this->hasOne(DocumentTest::class);
     }
 
     public function User()
