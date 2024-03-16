@@ -11,6 +11,8 @@ use App\Livewire\Proposal\Index as ProposalIndex;
 use App\Livewire\Proposal\Schedule as ProposalSchedule;
 use App\Livewire\Proposal\Verification as ProposalVerification;
 use App\Livewire\Theses\Index as ThesesIndex;
+use App\Livewire\Theses\Schedule as ThesesSchedule;
+use App\Livewire\Theses\Verification as ThesesVerification;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,4 +42,6 @@ Route::middleware('auth')->group(function () {
     Route::get('plagiarism/{document}/accept', PlagiarismAccept::class)->name('plagiarism.accept')->middleware(['can:user-admin', "can:file-status,document,'pending|accept'", "can:file-type,document,'plagiarism'"]);
     Route::get('plagiarism/{document}/decline', PlagiarismDecline::class)->name('plagiarism.decline')->middleware(['can:user-admin', "can:file-status,document,'pending|decline'", "can:file-type,document,'plagiarism'"]);
     Route::get('theses', ThesesIndex::class)->name('theses.index');
+    Route::get('theses/{document}/verification', ThesesVerification::class)->name('theses.verification')->middleware(['can:user-admin', "can:file-type,document,'theses'"]);
+    Route::get('theses/{document}/schedule', ThesesSchedule::class)->name('theses.schedule')->middleware(['can:user-admin', "can:file-status,document,'pending|accept'", "can:file-type,document,'theses'"]);
 });
