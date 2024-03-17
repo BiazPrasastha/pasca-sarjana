@@ -57,6 +57,12 @@
                         <i class="ri-profile-line"></i> <span data-key="t-theses">Tesis</span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link {{ request()->is('judiciaries*') ? 'active' : '' }}"
+                        href="{{ route('judiciaries.index') }}">
+                        <i class="ri-medal-line"></i> <span data-key="t-judiciaries">Yudisium</span>
+                    </a>
+                </li>
 
                 <li class="nav-item">
                     <a class="nav-link menu-link" data-bs-toggle="collapse" href="#sidebarMultilevel" role="button"
@@ -87,7 +93,8 @@
                                             <div class="collapse menu-dropdown" id="sidebarCrm">
                                                 <ul class="nav nav-sm flex-column">
                                                     <li class="nav-item">
-                                                        <a class="nav-link" data-key="t-level-3.1" href="#"> Level
+                                                        <a class="nav-link" data-key="t-level-3.1" href="#">
+                                                            Level
                                                             3.1 </a>
                                                     </li>
                                                     <li class="nav-item">

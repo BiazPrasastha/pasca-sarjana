@@ -3,6 +3,10 @@
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\DashboardController;
 use App\Livewire\Dashboard\Index as DashboardIndex;
+use App\Livewire\Judiciaries\Accept as JudiciariesAccept;
+use App\Livewire\Judiciaries\Decline as JudiciariesDecline;
+use App\Livewire\Judiciaries\Index as JudiciariesIndex;
+use App\Livewire\Judiciaries\Verification as JudiciariesVerification;
 use App\Livewire\Plagiarism\Accept as PlagiarismAccept;
 use App\Livewire\Plagiarism\Decline as PlagiarismDecline;
 use App\Livewire\Plagiarism\Index as PlagiarismIndex;
@@ -52,5 +56,12 @@ Route::middleware('auth')->group(function () {
         Route::get('/', ThesesIndex::class)->name('index');
         Route::get('/{document}/verification', ThesesVerification::class)->name('verification')->middleware(['can:user-admin', "can:file-type,document,'theses'"]);
         Route::get('/{document}/schedule', ThesesSchedule::class)->name('schedule')->middleware(['can:user-admin', "can:document-status,document,'accept'", "can:file-type,document,'theses'"]);
+    });
+
+    Route::group(['prefix' => 'judiciaries', 'as' => 'judiciaries.'], function () {
+        Route::get('/', JudiciariesIndex::class)->name('index');
+        Route::get('/{document}/verification', JudiciariesVerification::class)->name('verification')->middleware(['can:user-admin', "can:file-type,document,'judiciaries'"]);
+        Route::get('/{file}/accept', JudiciariesAccept::class)->name('accept')->middleware(['can:user-admin', "can:file-status,file,'pending|accept'", "can:file-type,file,'judiciaries'"]);
+        Route::get('/{file}/decline', JudiciariesDecline::class)->name('decline')->middleware(['can:user-admin', "can:file-status,file,'pending|decline'", "can:file-type,file,'judiciaries'"]);
     });
 });
