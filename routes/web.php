@@ -7,6 +7,7 @@ use App\Livewire\Judiciaries\Accept as JudiciariesAccept;
 use App\Livewire\Judiciaries\Decline as JudiciariesDecline;
 use App\Livewire\Judiciaries\Index as JudiciariesIndex;
 use App\Livewire\Judiciaries\Verification as JudiciariesVerification;
+use App\Livewire\News\Index as NewsIndex;
 use App\Livewire\Plagiarism\Accept as PlagiarismAccept;
 use App\Livewire\Plagiarism\Decline as PlagiarismDecline;
 use App\Livewire\Plagiarism\Index as PlagiarismIndex;
@@ -63,5 +64,9 @@ Route::middleware('auth')->group(function () {
         Route::get('/{document}/verification', JudiciariesVerification::class)->name('verification')->middleware(['can:user-admin', "can:file-type,document,'judiciaries'"]);
         Route::get('/{file}/accept', JudiciariesAccept::class)->name('accept')->middleware(['can:user-admin', "can:file-status,file,'pending|accept'", "can:file-type,file,'judiciaries'"]);
         Route::get('/{file}/decline', JudiciariesDecline::class)->name('decline')->middleware(['can:user-admin', "can:file-status,file,'pending|decline'", "can:file-type,file,'judiciaries'"]);
+    });
+
+    Route::group(['prefix' => 'news', 'as' => 'news.'], function () {
+        Route::get('/', NewsIndex::class)->name('index');
     });
 });

@@ -63,6 +63,12 @@
                         <i class="ri-medal-line"></i> <span data-key="t-judiciaries">Yudisium</span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link {{ request()->is('news*') ? 'active' : '' }}"
+                        href="{{ route('news.index') }}">
+                        <i class="ri-newspaper-line"></i> <span data-key="t-news">Berita</span>
+                    </a>
+                </li>
 
                 <li class="nav-item">
                     <a class="nav-link menu-link" data-bs-toggle="collapse" href="#sidebarMultilevel" role="button"
