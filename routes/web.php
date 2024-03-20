@@ -7,6 +7,7 @@ use App\Livewire\Judiciaries\Accept as JudiciariesAccept;
 use App\Livewire\Judiciaries\Decline as JudiciariesDecline;
 use App\Livewire\Judiciaries\Index as JudiciariesIndex;
 use App\Livewire\Judiciaries\Verification as JudiciariesVerification;
+use App\Livewire\News\Create as NewsCreate;
 use App\Livewire\News\Index as NewsIndex;
 use App\Livewire\Plagiarism\Accept as PlagiarismAccept;
 use App\Livewire\Plagiarism\Decline as PlagiarismDecline;
@@ -68,5 +69,6 @@ Route::middleware('auth')->group(function () {
 
     Route::group(['prefix' => 'news', 'as' => 'news.'], function () {
         Route::get('/', NewsIndex::class)->name('index');
+        Route::get('/create', NewsCreate::class)->name('create');
     });
 });

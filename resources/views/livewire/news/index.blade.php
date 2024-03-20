@@ -1,7 +1,7 @@
 <div>
     <div class="row g-3">
         <div class="col-md-4">
-            <a href="#">
+            <a href="{{ route('news.create') }}">
                 <div class="card h-100" style="height: 500px!important; max-height:500px">
                     <div class="card-body d-flex align-items-center justify-content-center flex-column">
                         <button class="btn btn-light btn-icon waves-effect my-4 rounded-pill fs-3" type="button">
