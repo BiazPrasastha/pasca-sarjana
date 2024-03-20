@@ -58,5 +58,6 @@ Route::middleware('auth')->group(function () {
     Route::group(['prefix' => 'news', 'as' => 'news.'], function () {
         Route::get('/', News\Index::class)->name('index');
         Route::get('/create', News\Create::class)->name('create');
+        Route::get('/{news}/edit', News\Edit::class)->name('edit');
     });
 });

@@ -26,7 +26,7 @@
                             <small class="text-muted">{{ $item->timestamp->format('d F Y') }}</small>
                             <small class="text-muted">
                                 <a class="btn btn-light btn-icon waves-effect rounded-pill" type="button"
-                                    href="#">
+                                    href="{{ route('news.edit', ['news' => $item->id]) }}">
                                     <i class="ri-edit-fill"></i>
                                 </a>
                             </small>
