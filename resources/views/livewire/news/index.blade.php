@@ -1,4 +1,26 @@
 <div>
+    <form wire:submit='search'>
+        <div class="row mb-4 g-4">
+            <div class="col-md-6">
+                <div class="input-group">
+                    <input class="form-control" type="text" aria-describedby="search-button"
+                        placeholder="Nama, Judul, atau Lainnya" wire:model='query'>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="input-group">
+                    <span wire:ignore>
+                        <input class="form-control" id="datetime" type="text" aria-describedby="search-date">
+                    </span>
+                    <button class="btn btn-primary" id="search-submit" type="submit">Search</button>
+                    @if ($this->filtered)
+                        <button class="btn btn-danger" id="search-reset" type="reset"
+                            wire:click='resetSearch'>Reset</button>
+                    @endif
+                </div>
+            </div>
+        </div>
+    </form>
     <div class="row g-3">
         <div class="col-md-4">
             <a href="{{ route('news.create') }}">
@@ -37,3 +59,16 @@
         @endforeach
     </div>
 </div>
+@push('scripts')
+    <script src="{{ asset('assets/js/pages/form-pickers.init.js') }}"></script>
+    <script src="{{ asset('assets/js/pages/moment.js') }}"></script>
+    <script>
+        flatpickr("#datetime", {
+            dateFormat: 'Y-m-d',
+            mode: "range",
+            onChange: function(selectedDates, dateStr) {
+                @this.set('range', dateStr, false)
+            }
+        });
+    </script>
+@endpush
