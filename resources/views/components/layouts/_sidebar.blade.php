@@ -69,6 +69,12 @@
                         <i class="ri-newspaper-line"></i> <span data-key="t-news">Berita</span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link {{ request()->is('announcement*') ? 'active' : '' }}"
+                        href="{{ route('announcement.index') }}">
+                        <i class="ri-pushpin-line"></i> <span data-key="t-announcement">Pengumuman</span>
+                    </a>
+                </li>
 
                 <li class="nav-item">
                     <a class="nav-link menu-link" data-bs-toggle="collapse" href="#sidebarMultilevel" role="button"

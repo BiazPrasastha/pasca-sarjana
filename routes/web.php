@@ -7,6 +7,7 @@ use App\Livewire\News;
 use App\Livewire\Plagiarism;
 use App\Livewire\Proposal;
 use App\Livewire\Theses;
+use App\Livewire\Announcement;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -59,5 +60,11 @@ Route::middleware('auth')->group(function () {
         Route::get('/', News\Index::class)->name('index');
         Route::get('/create', News\Create::class)->name('create');
         Route::get('/{news}/edit', News\Edit::class)->name('edit');
+    });
+
+    Route::group(['prefix' => 'announcement', 'as' => 'announcement.'], function () {
+        Route::get('/', Announcement\Index::class)->name('index');
+        Route::get('/create', Announcement\Create::class)->name('create');
+        Route::get('/{announcement}/edit', Announcement\Edit::class)->name('edit');
     });
 });
