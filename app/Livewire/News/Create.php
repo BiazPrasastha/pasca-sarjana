@@ -26,6 +26,6 @@ class Create extends Component
     public function store()
     {
         $this->form->store();
-        return redirect(route('news.index'));
+        return redirect(route('admin.news.index'));
     }
 }

@@ -1,7 +1,7 @@
 <div>
     <div class="mb-4">
         <!-- Buttons with Label -->
-        <a class="btn btn-secondary btn-label waves-effect waves-light" href="{{ route('theses.index') }}">
+        <a class="btn btn-secondary btn-label waves-effect waves-light" href="{{ route('admin.theses.index') }}">
             <i class="ri-arrow-left-line label-icon align-middle fs-16 me-2"></i> Kembali
         </a>
     </div>
@@ -64,7 +64,7 @@
 
                                         @case('accept')
                                             <a class="btn btn-success w-100"
-                                                href="{{ route('theses.schedule', ['document' => $file->Document->id]) }}">
+                                                href="{{ route('admin.theses.schedule', ['document' => $file->Document->id]) }}">
                                                 Diterima
                                             </a>
                                         @break

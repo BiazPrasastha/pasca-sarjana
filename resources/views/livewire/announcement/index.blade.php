@@ -23,7 +23,7 @@
     </form>
     <div class="row g-3">
         <div class="col-md-4">
-            <a href="{{ route('announcement.create') }}">
+            <a href="{{ route('admin.announcement.create') }}">
                 <div class="card h-100">
                     <div class="card-body d-flex align-items-center justify-content-center flex-column">
                         <button class="btn btn-light btn-icon waves-effect my-4 rounded-pill fs-3" type="button">
@@ -47,7 +47,7 @@
                             <small class="text-muted">{{ $item->timestamp->format('d F Y') }}</small>
                             <small class="text-muted">
                                 <a class="btn btn-light btn-icon waves-effect rounded-pill" type="button"
-                                    href="{{ route('announcement.edit', ['announcement' => $item->id]) }}">
+                                    href="{{ route('admin.announcement.edit', ['announcement' => $item->id]) }}">
                                     <i class="ri-edit-fill"></i>
                                 </a>
                             </small>

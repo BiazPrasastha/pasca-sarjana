@@ -66,6 +66,6 @@ class Verification extends Component
             'status' => 'accept'
         ]);
 
-        return redirect(route('theses.schedule', ['document' => $this->file->Document->id]));
+        return redirect(route('admin.theses.schedule', ['document' => $this->file->Document->id]));
     }
 }

@@ -2,7 +2,7 @@
     <div class="mb-4">
         <!-- Buttons with Label -->
         <a class="btn btn-secondary btn-label waves-effect waves-light"
-            href="{{ route('plagiarism.verification', ['document' => $file->Document->id]) }}">
+            href="{{ route('admin.plagiarism.verification', ['document' => $file->Document->id]) }}">
             <i class="ri-arrow-left-line label-icon align-middle fs-16 me-2"></i> Kembali
         </a>
     </div>
@@ -40,7 +40,7 @@
     <div class="d-flex justify-content-end gap-2">
         <a
             class="btn btn-outline-dark btn-lg"
-            href="{{ route('plagiarism.verification', ['document' => $file->Document->id]) }}">
+            href="{{ route('admin.plagiarism.verification', ['document' => $file->Document->id]) }}">
             Batal
         </a>
         <form wire:submit='sendEmail'>

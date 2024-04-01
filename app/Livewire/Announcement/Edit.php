@@ -41,12 +41,12 @@ class Edit extends Component
     public function update()
     {
         $this->form->update($this->file_changed);
-        return redirect(route('announcement.index'));
+        return redirect(route('admin.announcement.index'));
     }
 
     public function destroy()
     {
         $this->form->destroy();
-        return redirect(route('announcement.index'));
+        return redirect(route('admin.announcement.index'));
     }
 }

@@ -34,44 +34,44 @@
                 <li class="menu-title"><span data-key="t-menu">Menu</span></li>
 
                 <li class="nav-item">
-                    <a class="nav-link menu-link {{ request()->is('dashboard') ? 'active' : '' }}"
+                    <a class="nav-link menu-link {{ Route::is('dashboard.*') ? 'active' : '' }}"
                         href="{{ route('dashboard.index') }}">
                         <i class="ri-home-4-line"></i> <span data-key="t-dashboard">Dashboard</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link menu-link {{ request()->is('proposal*') ? 'active' : '' }}"
-                        href="{{ route('proposal.index') }}">
+                    <a class="nav-link menu-link {{ Route::is('admin.proposal.*') ? 'active' : '' }}"
+                        href="{{ route('admin.proposal.index') }}">
                         <i class="ri-file-list-2-line"></i> <span data-key="t-proposal">Pengajuan Proposal</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link menu-link {{ request()->is('plagiarism*') ? 'active' : '' }}"
-                        href="{{ route('plagiarism.index') }}">
+                    <a class="nav-link menu-link {{ Route::is('admin.plagiarism.*') ? 'active' : '' }}"
+                        href="{{ route('admin.plagiarism.index') }}">
                         <i class="ri-clipboard-line"></i> <span data-key="t-plagiarism">Plagiasi</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link menu-link {{ request()->is('theses*') ? 'active' : '' }}"
-                        href="{{ route('theses.index') }}">
+                    <a class="nav-link menu-link {{ Route::is('admin.theses.*') ? 'active' : '' }}"
+                        href="{{ route('admin.theses.index') }}">
                         <i class="ri-profile-line"></i> <span data-key="t-theses">Tesis</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link menu-link {{ request()->is('judiciaries*') ? 'active' : '' }}"
-                        href="{{ route('judiciaries.index') }}">
+                    <a class="nav-link menu-link {{ Route::is('admin.judiciaries.*') ? 'active' : '' }}"
+                        href="{{ route('admin.judiciaries.index') }}">
                         <i class="ri-medal-line"></i> <span data-key="t-judiciaries">Yudisium</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link menu-link {{ request()->is('news*') ? 'active' : '' }}"
-                        href="{{ route('news.index') }}">
+                    <a class="nav-link menu-link {{ Route::is('admin.news.*') ? 'active' : '' }}"
+                        href="{{ route('admin.news.index') }}">
                         <i class="ri-newspaper-line"></i> <span data-key="t-news">Berita</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link menu-link {{ request()->is('announcement*') ? 'active' : '' }}"
-                        href="{{ route('announcement.index') }}">
+                    <a class="nav-link menu-link {{ Route::is('admin.announcement.*') ? 'active' : '' }}"
+                        href="{{ route('admin.announcement.index') }}">
                         <i class="ri-pushpin-line"></i> <span data-key="t-announcement">Pengumuman</span>
                     </a>
                 </li>

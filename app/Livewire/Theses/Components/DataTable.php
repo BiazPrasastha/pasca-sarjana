@@ -76,7 +76,7 @@ class DataTable extends DataTableComponent
                 ->hideIf(true),
             LinkColumn::make('Nama', 'user.student.name')
                 ->title(fn ($row) => $row['user.student.name'])
-                ->location(fn ($row) => route('theses.verification', ['document' => $row->id]))
+                ->location(fn ($row) => route('admin.theses.verification', ['document' => $row->id]))
                 ->secondaryHeaderFilter('name')
                 ->sortable(),
             Column::make("NIM", "user.student.nim")

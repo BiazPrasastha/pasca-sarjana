@@ -1,6 +1,6 @@
 <div>
     <div class="mb-4">
-        <a class="btn btn-secondary btn-label waves-effect waves-light" href="{{ route('judiciaries.index') }}">
+        <a class="btn btn-secondary btn-label waves-effect waves-light" href="{{ route('admin.judiciaries.index') }}">
             <i class="ri-arrow-left-line label-icon align-middle fs-16 me-2"></i> Kembali
         </a>
     </div>
@@ -38,13 +38,13 @@
 
                                         @case('accept')
                                             <a class="btn btn-success w-100"
-                                                href="{{ route('judiciaries.accept', ['file' => $file->id]) }}"> Diterima
+                                                href="{{ route('admin.judiciaries.accept', ['file' => $file->id]) }}"> Diterima
                                             </a>
                                         @break
 
                                         @case('decline')
                                             <a class="btn btn-danger w-100"
-                                                href="{{ route('judiciaries.decline', ['file' => $file->id]) }}"> Ditolak
+                                                href="{{ route('admin.judiciaries.decline', ['file' => $file->id]) }}"> Ditolak
                                             </a>
                                         @break
 
@@ -57,13 +57,13 @@
                                         <div class="row my-2">
                                             <div class="col-6">
                                                 <a class="btn btn-primary w-100" type="button"
-                                                    href="{{ route('judiciaries.accept', ['file' => $file->id]) }}">
+                                                    href="{{ route('admin.judiciaries.accept', ['file' => $file->id]) }}">
                                                     <i class="ri-check-line"></i>
                                                 </a>
                                             </div>
                                             <div class="col-6">
                                                 <a class="btn btn-danger w-100" type="button"
-                                                    href="{{ route('judiciaries.decline', ['file' => $file->id]) }}">
+                                                    href="{{ route('admin.judiciaries.decline', ['file' => $file->id]) }}">
                                                     <i class="ri-close-line"></i>
                                                 </a>
                                             </div>
