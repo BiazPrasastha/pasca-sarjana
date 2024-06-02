@@ -19,7 +19,7 @@
     </div>
     <div class="card">
         <div class="card-body">
-            @livewire('Payment.Components.DataTable')
+            @livewire('Payment.Components.DataTable', ['status' => ['success', 'decline']])
         </div>
     </div>
 </div>

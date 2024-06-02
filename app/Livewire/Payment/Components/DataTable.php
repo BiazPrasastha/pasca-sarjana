@@ -13,9 +13,13 @@ use Rappasoft\LaravelLivewireTables\Views\Filters\SelectFilter;
 
 class DataTable extends DataTableComponent
 {
+    public $status = [];
     public function builder(): Builder
     {
         return Payment::query()
+            ->when($this->status != null, function ($q) {
+                $q->whereIn('status', $this->status);
+            })
             ->where('user_id', auth()->id());
     }
 
@@ -28,20 +32,6 @@ class DataTable extends DataTableComponent
     public function filters(): array
     {
         return [
-            SelectFilter::make('Status', 'status')
-                ->options(
-                    [
-                        '' => 'Semua',
-                        'pending' => 'Menunggu Persetujuan',
-                        'accept' => 'Diterima',
-                        'decline' => 'Ditolak',
-                    ]
-                )
-                ->setFirstOption('Semua')
-                ->filter(function (Builder $builder, string $value) {
-                    $builder->where('status', '=', $value);
-                })
-                ->hiddenFromMenus(),
             SelectFilter::make('Jenis Pembayaran', 'type')
                 ->options(
                     [
@@ -102,10 +92,13 @@ class DataTable extends DataTableComponent
                     function ($value, $row, Column $column) {
                         switch ($value) {
                             case 'pending':
-                                return '<button class="btn btn-warning w-100 text-dark"> Menunggu Persetujuan </button>';
+                                return '<button class="btn btn-warning w-100 text-dark"> Menunggu Pembayaran </button>';
                                 break;
                             case 'accept':
-                                return '<button class="btn btn-success w-100"> Diterima </button>';
+                                return '<button class="btn btn-info w-100"> Menunggu Konfirmasi </button>';
+                                break;
+                            case 'success':
+                                return '<button class="btn btn-success w-100"> Dibayar </button>';
                                 break;
                             case 'decline':
                                 return '<button class="btn btn-danger w-100"> Ditolak </button>';
@@ -117,7 +110,6 @@ class DataTable extends DataTableComponent
                     }
                 )
                 ->html()
-                ->secondaryHeaderFilter('status')
                 ->sortable(),
         ];
     }
