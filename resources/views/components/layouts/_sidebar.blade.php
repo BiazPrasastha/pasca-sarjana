@@ -77,6 +77,14 @@
                         </a>
                     </li>
                 @endcan
+                @can('user-student')
+                    <li class="nav-item">
+                        <a class="nav-link menu-link {{ Route::is('student.payment.*') ? 'active' : '' }}"
+                            href="{{ route('student.payment.index') }}">
+                            <i class="ri-bank-card-line"></i> <span data-key="t-payment">Pembayaran</span>
+                        </a>
+                    </li>
+                @endcan
 
                 <li class="nav-item">
                     <a class="nav-link menu-link" data-bs-toggle="collapse" href="#sidebarMultilevel" role="button"
