@@ -68,10 +68,10 @@ class DataTable extends DataTableComponent
                 ->location(function ($row) {
                     switch ($row['status']) {
                         case 'pending';
-                            return route('student.payment.process', ['id' => $row['id']]);
+                            return route('student.payment.process', ['payment' => $row['id']]);
                             break;
                         case 'accept':
-                            return route('student.payment.confirm', ['id' => $row['id']]);
+                            return route('student.payment.confirm', ['payment' => $row['id']]);
                             break;
                         default:
                             return '#';
