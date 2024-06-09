@@ -79,7 +79,8 @@ Route::middleware('auth')->group(function () {
             Route::get('/', Payment\Index::class)->name('index');
             Route::get('/process', Payment\ProcessList::class)->name('process-list');
             Route::get('/confirm', Payment\ConfirmList::class)->name('confirm-list');
-            Route::get('/process/{payment}', Payment\Process::class)->name('process');
+            Route::get('/process/{payment}', Payment\Process::class)->name('process')->middleware('process-payment');
+            Route::get('/process/{payment}/detail', Payment\ProcessDetail::class)->name('process-detail');
             Route::get('/confirm/{payment}', Payment\Confirm::class)->name('confirm');
         });
     });

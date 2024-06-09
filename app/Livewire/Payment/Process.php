@@ -23,7 +23,10 @@ class Process extends Component
     {
         $validated = $this->validate();
         $this->payment->update([
-            'method' => $validated['method']
+            'method' => $validated['method'],
+            'admin_fee' => 2500
         ]);
+
+        return $this->redirect(route('student.payment.process-detail', ['payment' => $this->payment->id]));
     }
 }
