@@ -1,0 +1,212 @@
+@media(max-width:576px){
+  .merah, .abu-muda, .abu-tua, .kanan-logo{
+      display: none ;
+  }
+ 
+  .head-kecil{
+      display: block;
+  }
+  
+}
+@media (min-width: 576px) {
+  .head-kecil{
+      display: none;
+  }
+  .tinggi{
+  min-height: 500px;
+  }
+}
+
+@media (min-width: 768px) {
+  .head-kecil{
+      display: none;
+  }
+  
+}
+
+@media (min-width: 992px) {
+  .head-kecil{
+      display: none;
+  }
+  
+}
+
+@media (min-width: 1200px) {
+  .head-kecil{
+      display: none;
+  }
+}
+
+@media (min-width: 1400px) {
+  .head-kecil{
+      display: none;
+  }
+}
+/* animasi header */
+.merah.fade-in {
+  animation: fadeIn 2s ease-in-out;
+  animation: bentuk 2s ease-in-out;
+}
+.abu-muda.fade-in.bentuk {
+  animation: bentuk 1.5s ease-in-out;
+  animation: fadeIn 1.5s ease-in-out;
+}
+.abu-tua.fade-in.bentuk {
+  animation: bentuk 1s ease-in-out;
+  animation: fadeIn 1s ease-in-out;
+}
+.geser-kanan.fade-in{
+  animation: fadeIn 2.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateX(-10%);
+  }
+  to {
+      opacity: 1;
+      transform: translateX(0);
+  }
+}
+
+@keyframes bentuk {
+  from {
+      opacity: 0;
+      clip-path: polygon(0 0, 100% 0, 0% 100%, 100% 0%);
+  }
+  to {
+      opacity: 1; 
+  }
+}
+.h-300:hover{
+  transform: scale(1.03);
+  transition: transform 0.3s ease-in-out;
+}
+/* selesai animasi header */
+header.masthead {
+  background-color: #000;
+  background-image: linear-gradient(to bottom, rgba(255, 0, 0, 0.3), rgba(255, 0, 0, 0.3)), url("../assets/img/masjid_dark.jpg");
+  min-height: 500px;
+  background-position: center right 10%;
+  background-size: cover;
+}
+
+#mainNav .navbar-nav .nav-item .nav-link {
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 1rem;
+  color: #000;
+  letter-spacing: 0.0625em;
+  border-bottom: 3px solid rgba(0, 0, 0, 0);
+}
+#mainNav .navbar-nav .nav-item .nav-link.active, #mainNav .navbar-nav .nav-item .nav-link:hover {
+  color: #B31312;
+  border-bottom: 3px solid #B31312;
+}
+#mainNav .navbar-toggler {
+  color: #B31312;
+}
+.svg-inline--fa {
+  height: 2em;
+}
+.bayangan {
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+}
+.putih {
+  border: none;
+  height: 1px;
+  background-color: #fff; /* White color (#fff) for the line */
+  width: 250px;
+}
+.text-putih{
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.abu-muda{
+  background-color: #3A434A;
+  clip-path: polygon(0 0, 45% 0, 65% 100%, 0 100%);
+}
+.abu-tua{
+  background-color: #2E3840;
+  clip-path: polygon(0 0, 40% 0, 65% 100%, 2% 100%);
+}
+.abu-tua-bg{
+  background-color: #3A434A;
+}
+.merah{
+  background-color: #B31312;
+  clip-path: polygon(0 0, 35% 0, 65% 100%, 4% 100%);
+}
+.kanan-logo{
+  background: url('../assets/img/Logotext_UNSIQ_n.png') no-repeat;
+  background-size: 150px;
+  opacity: 1;
+  height: 100px;
+  width: 150px;
+  position: absolute;
+  right: 3rem;
+  top: 400px;
+}
+.geser-kanan{
+  transition: opacity 0.1s ease-in-out, transform 0.1s ease-in-out;
+}
+.merah-marun{
+  color: #B31312;
+}
+.merah-marun-bg{
+  background-color: #B31312 !important;
+}
+.link-merah {
+  background-color: #B31312;
+  padding: 30px;
+  position: absolute;
+  top: 0;
+}
+.animasi{
+  transition: transform 0.3s ease-in-out, padding-bottom 0.3s ease-in-out;
+}
+.putih-tulang{
+  background-color: #efefef;
+}
+.border-merah{
+  border-left: 0.5rem solid #B31312 !important;
+}
+.border-hijau{
+  border-left: 0.5rem solid #15B097 !important;
+}
+.border-kuning{
+  border-left: 0.5rem solid #F9A03F !important;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    color: #000!important; /* Change to your desired text color */
+    width: 10%!important;
+}
+
+.carousel-control-next:hover {
+    color: #000!important; /* Change to your desired text color */
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1)); /* Adjust opacity values as needed */
+}
+.carousel-control-prev:hover{
+    color: #000!important; /* Change to your desired text color */
+    background: linear-gradient(to left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1)); /* Adjust opacity values as needed */
+}
+
+.carousel-control-next-icon,
+.carousel-control-prev-icon{
+  background-color: #B31312!important;
+}
+
+.carousel-indicators {
+  position:inherit!important;
+}
+
+.carousel-indicators [dt-bs-target] {
+  height: 4px!important;
+  width: 40px!important;
+}
+
+.carousel-indicators .active{
+  background-color: #B31312!important;
+}
