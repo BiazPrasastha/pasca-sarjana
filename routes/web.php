@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function() {
+Route::get('/', function () {
     return view('home');
 });
 
@@ -81,7 +81,7 @@ Route::middleware('auth')->group(function () {
             Route::get('/confirm', Payment\ConfirmList::class)->name('confirm-list');
             Route::get('/process/{payment}', Payment\Process::class)->name('process')->middleware('process-payment');
             Route::get('/process/{payment}/detail', Payment\ProcessDetail::class)->name('process-detail');
-            Route::get('/confirm/{payment}', Payment\Confirm::class)->name('confirm');
+            Route::get('/confirm/{payment}', Payment\Confirm::class)->name('confirm')->middleware('confirm-payment');
         });
     });
 });
