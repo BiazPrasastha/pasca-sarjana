@@ -84,6 +84,24 @@
                             <i class="ri-bank-card-line"></i> <span data-key="t-payment">Pembayaran</span>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu-link {{ Route::is('student.theses.*') ? 'active' : '' }}"
+                            href="{{ route('student.theses.index') }}">
+                            <i class="ri-profile-line"></i> <span data-key="t-theses">Tesis</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu-link {{ Route::is('student.plagiarism.*') ? 'active' : '' }}"
+                            href="{{ route('student.plagiarism.index') }}">
+                            <i class="ri-clipboard-line"></i> <span data-key="t-plagiarism">Plagiasi</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu-link {{ Route::is('student.judiciaries.*') ? 'active' : '' }}"
+                            href="{{ route('student.judiciaries.index') }}">
+                            <i class="ri-medal-line"></i> <span data-key="t-judiciaries">Yudisium</span>
+                        </a>
+                    </li>
                 @endcan
 
                 <li class="nav-item">

@@ -6,6 +6,9 @@ use App\Livewire\Judiciaries;
 use App\Livewire\News;
 use App\Livewire\Plagiarism;
 use App\Livewire\Proposal;
+use App\Livewire\StudentJudiciaries;
+use App\Livewire\StudentPlagiarism;
+use App\Livewire\StudentTheses;
 use App\Livewire\Theses;
 use App\Livewire\Announcement;
 use App\Livewire\Payment;
@@ -82,6 +85,15 @@ Route::middleware('auth')->group(function () {
             Route::get('/process/{payment}', Payment\Process::class)->name('process')->middleware('process-payment');
             Route::get('/process/{payment}/detail', Payment\ProcessDetail::class)->name('process-detail');
             Route::get('/confirm/{payment}', Payment\Confirm::class)->name('confirm')->middleware('confirm-payment');
+        });
+        Route::group(['prefix' => 'theses', 'as' => 'theses.'], function () {
+            Route::get('/', StudentTheses\Index::class)->name('index');
+        });
+        Route::group(['prefix' => 'plagiarism', 'as' => 'plagiarism.'], function () {
+            Route::get('/', StudentPlagiarism\Index::class)->name('index');
+        });
+        Route::group(['prefix' => 'judiciaries', 'as' => 'judiciaries.'], function () {
+            Route::get('/', StudentJudiciaries\Index::class)->name('index');
         });
     });
 });
