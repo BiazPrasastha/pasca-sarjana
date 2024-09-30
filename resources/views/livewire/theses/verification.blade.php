@@ -25,10 +25,27 @@
                             <td>{{ $document->user->student->name }}</td>
                             <td>{{ $document->user->student->nim }}</td>
                             <td>{{ $document->timestamp->format('Y-m-d') }}</td>
-                            <td>file-dummy.pdf</td>
-                            <td>file-dummy.pdf</td>
-                            <td>file-dummy.pdf</td>
-                            <td>file-dummy.pdf</td>
+                            <td>
+
+                                <a class="btn btn-secondary btn-sm"
+                                    href="{{ asset('storage/' . $document->files->where('type', 'pengesahan_pembimbing')->first()?->file) }}">Open
+                                    File</a>
+                            </td>
+                            <td>
+                                <a class="btn btn-secondary btn-sm"
+                                    href="{{ asset('storage/' . $document->files->where('type', 'transkrip')->first()?->file) }}">Open
+                                    File</a>
+                            </td>
+                            <td>
+                                <a class="btn btn-secondary btn-sm"
+                                    href="{{ asset('storage/' . $document->files->where('type', 'plagiasi')->first()?->file) }}">Open
+                                    File</a>
+                            </td>
+                            <td>
+                                <a class="btn btn-secondary btn-sm"
+                                    href="{{ asset('storage/' . $document->files->where('type', 'pembayaran_semester')->first()?->file) }}">Open
+                                    File</a>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -52,7 +69,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($document->files as $file)
+                        @foreach ($document->files->where('type', 'theses') as $file)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $file->title }}</td>
@@ -147,7 +164,8 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="confirmationLabel"> Konfirmasi Terima Tesis</h5>
-                        <button class="btn-close" data-bs-dismiss="modal" type="button" aria-label="Close"> </button>
+                        <button class="btn-close" data-bs-dismiss="modal" type="button" aria-label="Close">
+                        </button>
                     </div>
                     <form wire:submit='store'>
                         <div class="modal-body">

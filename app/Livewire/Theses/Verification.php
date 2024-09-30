@@ -16,9 +16,7 @@ class Verification extends Component
 
     public function mount()
     {
-        $this->document->load('files');
-        $this->document->load('User.student');
-        $this->document->load('User.student.studyprogram');
+        $this->document->load(['files', 'User.student', 'User.student.studyprogram']);
     }
 
     public function render()
