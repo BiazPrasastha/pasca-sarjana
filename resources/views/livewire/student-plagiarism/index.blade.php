@@ -26,8 +26,26 @@
                     </div>
                     <div class="col-12">
                         <div class="form-group">
+                            <label class="form-label" for="title">Judul Tesis</label>
+                            <input class="form-control form-control-md" id="title" type="text"
+                                wire:model='form.title'>
+                            @error('form.title')
+                                <div class="invalid-feedback" style="display: block">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
                             <label class="form-label" for="theses">Dokumen Tesis</label>
-                            <input class="form-control form-control-md" id="theses" type="file">
+                            <input class="form-control form-control-md" id="theses" type="file"
+                                wire:model='form.theses'>
+                            @error('form.theses')
+                                <div class="invalid-feedback" style="display: block">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
                     </div>
                 </div>

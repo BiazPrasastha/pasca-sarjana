@@ -38,7 +38,7 @@
                             </td>
                             <td>
                                 <a class="btn btn-secondary btn-sm"
-                                    href="{{ asset('storage/' . $document->files->where('type', 'plagiasi')->first()?->file) }}">Open
+                                    href="{{ asset('storage/' . $document->files->where('type', 'plagiarism')->first()?->file) }}">Open
                                     File</a>
                             </td>
                             <td>

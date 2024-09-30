@@ -61,12 +61,12 @@ class CreateForm extends Form
             'type' => 'transkrip'
         ]);
 
-        $plagiasi = Storage::disk('public')->put('plagiasi', $this->plagiasi);
+        $plagiasi = Storage::disk('public')->put('plagiarism', $this->plagiasi);
         DocumentFile::create([
             'document_id' => $document->id,
             'title' => $this->title,
             'file' => $plagiasi,
-            'type' => 'plagiasi'
+            'type' => 'plagiarism'
         ]);
 
         $pembayaran_semester = Storage::disk('public')->put('pembayaran_semester', $this->pembayaran_semester);
