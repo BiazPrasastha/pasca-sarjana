@@ -19,14 +19,39 @@
                     </div>
                     <div class="col-12">
                         <div class="form-group">
-                            <label class="form-label" for="bt">Bimbingan Terakhir (Setelah Ujian)</label>
-                            <input class="form-control form-control-md" id="bt" type="file">
+                            <label class="form-label" for="bimbingan_terakhir">Bimbingan Terakhir (Setelah
+                                Ujian)</label>
+                            <input class="form-control form-control-md" id="bimbingan_terakhir" type="file"
+                                wire:model='form.bimbingan_terakhir'>
+                            @error('form.bimbingan_terakhir')
+                                <div class="invalid-feedback" style="display: block">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label class="form-label" for="title">Judul Tesis</label>
+                            <input class="form-control form-control-md" id="title" type="text"
+                                wire:model='form.title'>
+                            @error('form.title')
+                                <div class="invalid-feedback" style="display: block">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
                     </div>
                     <div class="col-12">
                         <div class="form-group">
                             <label class="form-label" for="theses">Dokumen Tesis</label>
-                            <input class="form-control form-control-md" id="theses" type="file">
+                            <input class="form-control form-control-md" id="theses" type="file"
+                                wire:model='form.theses'>
+                            @error('form.theses')
+                                <div class="invalid-feedback" style="display: block">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
                     </div>
                 </div>

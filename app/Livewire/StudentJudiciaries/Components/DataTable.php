@@ -6,7 +6,6 @@ use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 use App\Models\Document;
 use Illuminate\Database\Eloquent\Builder;
-use Rappasoft\LaravelLivewireTables\Views\Columns\LinkColumn;
 use Rappasoft\LaravelLivewireTables\Views\Filters\DateRangeFilter;
 use Rappasoft\LaravelLivewireTables\Views\Filters\SelectFilter;
 use Rappasoft\LaravelLivewireTables\Views\Filters\TextFilter;
@@ -74,9 +73,7 @@ class DataTable extends DataTableComponent
                 ->hideIf(true),
             Column::make('name', 'user.student.name')
                 ->hideIf(true),
-            LinkColumn::make('Nama', 'user.student.name')
-                ->title(fn($row) => $row['user.student.name'])
-                ->location(fn($row) => route('admin.judiciaries.verification', ['document' => $row->id]))
+            Column::make('Nama', 'user.student.name')
                 ->secondaryHeaderFilter('name')
                 ->sortable(),
             Column::make("NIM", "user.student.nim")
