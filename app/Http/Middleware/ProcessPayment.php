@@ -16,7 +16,7 @@ class ProcessPayment
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $payment = Payment::find($request->payment)->firstOrFail();
+        $payment = Payment::where('id', $request->payment?->id)->firstOrFail();
         if ($payment->status == 'pending' && $payment->method != null) {
             return redirect(route('student.payment.process-detail', ['payment' => $payment->id]));
         } else if ($payment->status != 'pending') {

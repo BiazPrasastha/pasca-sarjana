@@ -1,12 +1,18 @@
 <div>
     <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-4">
+            <div class="card card-body">
+                <h3 class="my-3">Pembayaran Baru</h3>
+                <a class="btn btn-primary" href="{{ route('student.payment.create') }}">Daftar</a>
+            </div>
+        </div>
+        <div class="col-lg-4">
             <div class="card card-body">
                 <h3 class="my-3">Proses Pembayaran</h3>
                 <a class="btn btn-success" href="{{ route('student.payment.process-list') }}">Proses</a>
             </div>
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-4">
             <div class="card card-body">
                 <h3 class="my-3">Konfirmasi Pembayaran</h3>
                 <a class="btn btn-danger" href="{{ route('student.payment.confirm-list') }}">Konfirmasi</a>

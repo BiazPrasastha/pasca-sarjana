@@ -16,7 +16,7 @@ class ConfirmPayment
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $payment = Payment::find($request->payment)->firstOrFail();
+        $payment = Payment::where('id', $request->payment?->id)->firstOrFail();
         if ($payment->status != 'accept') {
             abort(403, 'Anda Sudah/Tidak Bisa Melakukan Konfirmasi');
         }

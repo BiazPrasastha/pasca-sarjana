@@ -80,6 +80,7 @@ Route::middleware('auth')->group(function () {
     Route::group(['prefix' => 'student', 'as' => 'student.', 'can:user-student'], function () {
         Route::group(['prefix' => 'payment', 'as' => 'payment.'], function () {
             Route::get('/', Payment\Index::class)->name('index');
+            Route::get('/create', Payment\Create::class)->name('create');
             Route::get('/process', Payment\ProcessList::class)->name('process-list');
             Route::get('/confirm', Payment\ConfirmList::class)->name('confirm-list');
             Route::get('/process/{payment}', Payment\Process::class)->name('process')->middleware('process-payment');

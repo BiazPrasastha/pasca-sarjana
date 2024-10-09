@@ -27,6 +27,8 @@ class Confirm extends Component
             $this->payment->update([
                 'status' => 'success'
             ]);
+
+            return redirect(route('student.payment.index'));
         } else {
             throw ValidationException::withMessages(['code' => 'The payment code is incorrect.']);
         }
